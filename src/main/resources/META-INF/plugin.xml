@@ -1,0 +1,18 @@
+<idea-plugin>
+    <id>be.vub.soft.socrates</id>
+    <name>Socrates</name>
+    <vendor email="jonas.de.bleser@vub.be" url="https://soft.vub.ac.be">SOFT</vendor>
+
+    <description>SoCRATES - Scala Radar for Test Smells. This tool is able to detect test smells int Scala/SBT projects.</description>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij"></extensions>
+
+    <actions>
+        <action id="be.vub.soft.TestAction" class="be.vub.soft.SocratesAction" text="Detect Test Smells"
+                description="This action detects test smells in the project.">
+            <add-to-group group-id="AnalyzeMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>

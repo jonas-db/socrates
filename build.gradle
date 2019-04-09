@@ -1,0 +1,59 @@
+plugins {
+    id 'java'
+    id 'scala'
+    id 'org.jetbrains.intellij' version '0.4.7'
+}
+
+group 'be.vub.soft'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+tasks.compileJava.dependsOn compileScala
+tasks.compileScala.dependsOn.remove("compileJava")
+
+sourceSets {
+    main {
+        scala {
+            outputDir = file("$buildDir/classes/scala/main")
+        }
+        java {
+            outputDir = file("$buildDir/classes/java/main")
+        }
+    }
+}
+
+dependencies {
+    compile 'com.intellij:forms_rt:7.0.3'
+    compile files("$sourceSets.main.scala.outputDir")
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.scalameta/scalameta
+    compile group: 'org.scalameta', name: 'scalameta_2.12', version: '4.1.0'
+    // https://mvnrepository.com/artifact/org.scalameta/contrib
+    compile group: 'org.scalameta', name: 'contrib_2.12', version: '4.1.0'
+    // https://mvnrepository.com/artifact/org.scalameta/semanticdb
+    compile group: 'org.scalameta', name: 'semanticdb_2.12', version: '4.1.0'
+    // https://mvnrepository.com/artifact/org.scalameta/symtab
+    compile group: 'org.scalameta', name: 'symtab_2.12', version: '4.1.0'
+    // https://mvnrepository.com/artifact/org.scalameta/interactive
+    compile group: 'org.scalameta', name: 'interactive_2.12.8', version: '4.1.0'
+    // https://mvnrepository.com/artifact/com.typesafe.scala-logging/scala-logging
+    //compile group: 'com.typesafe.scala-logging', name: 'scala-logging_2.12', version: '3.9.0'
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+    //testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    version '2019.1'
+}
+patchPluginXml {
+    changeNotes ""
+}
