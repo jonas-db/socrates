@@ -1,6 +1,9 @@
 # Gradle
 # ------
 .gradle
+!build/distributions/socrates*
+!/build/distributions/socrates*
+!build/distributions/socrates-1.0-SNAPSHOT.zip
 /build
 /buildSrc/build
 /buildSrc/subprojects/*/build
@@ -9,8 +12,7 @@
 /subprojects/internal-android-performance-testing/build-android-libs
 build/*
 /build/*
-!build/distributions/*
-!/build/distributions/*
+
 
 # IDEA
 # ----

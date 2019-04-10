@@ -2,8 +2,6 @@ package be.vub.soft.socrates.analysis.scalal.explorable
 
 import scala.meta.{Defn, Init, Source, Template, Term, Tree, Type, _}
 import be.vub.soft.socrates.analysis.scalal.explorable.test.scalatest._
-import be.vub.soft.socrates.analysis.scalal.explorable.test.scalacheck._
-import be.vub.soft.socrates.analysis.scalal.explorable.test.specs2._
 import be.vub.soft.socrates.analysis.scalal.explorable.test.Unknown
 
 import scala.meta.Term.NewAnonymous
