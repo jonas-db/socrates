@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'scala'
-    id 'org.jetbrains.intellij' version '0.4.7'
+    id 'org.jetbrains.intellij' version '0.4.21' // This version can be changed.
 }
 
 group 'be.vub.soft'
@@ -11,6 +11,14 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+// This project requires Java 8. Nevertheless, it will probably work with newer versions.
+if(JavaVersion.current() != JavaVersion.VERSION_1_8) throw new GradleException("This project requires Java 8, but it's running on "+JavaVersion.current())
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 tasks.compileJava.dependsOn compileScala
@@ -52,7 +60,7 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version '2019.1'
+    version '2020.1' // This version can be changed.
 }
 patchPluginXml {
     changeNotes ""
