@@ -41,11 +41,7 @@ object ProjectDatabase {
             .map(f => Classpath(f.getAbsolutePath))
             .reduceOption(_ ++ _)
 
-        val classPath = ClassLoader.getSystemClassLoader.asInstanceOf[URLClassLoader].getURLs
-            .map(url => Classpath(url.getFile))
-            .reduceOption(_ ++ _)
-
-        val all = (externalJars ++ jars ++ classes ++ classPath ++ List(Classpath(rtPath))).reduceOption(_ ++ _).getOrElse(Classpath(""))
+        val all = (externalJars ++ jars ++ classes ++ List(Classpath(rtPath))).reduceOption(_ ++ _).getOrElse(Classpath(""))
         val symtab = GlobalSymbolTable(all)
 
         Locator.apply(Paths.get(root))((path, db) => db.documents.foreach({
