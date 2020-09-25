@@ -16,8 +16,9 @@ Lazy Test                       | Sensitive Equality
 ## Compilation (optional)
   1. Clone the project to `~/socrates`.
   2. Open the project in IntelliJ IDEA.
-  3. Execute the Gradle task `assembly`.
-  4. A succesful compilation results in a .zip file located at `~/socrates/build/distributions/socrates-1.0-SNAPSHOT.zip`.
+  3. If necessary, adapt the versions of the IntelliJ plugin/IDE. (Search for "This version can be changed" in build.gradle)
+  4. Execute the Gradle task `assembly`.
+  5. A succesful compilation results in a .zip file located at `~/socrates/build/distributions/socrates-1.0-SNAPSHOT.zip`.
 
 ## Installation
   1. Go to `IntelliJ IDEA` -> `Preferences` -> `Plugins` -> `Install Plugin from Disk...`
@@ -26,7 +27,7 @@ Lazy Test                       | Sensitive Equality
 
 ## Usage
   1. Open any project in `IntelliJ IDEA`.
-  2. Go to `Analyze` -> `Detect Test Smells`.
+  2. Go to `Analyze` -> `Detect Test Smells` or `Other` -> `Detect Test Smells` (depending on the IntelliJ version)
   3. A dialog with the following options appears
        * `Java Runtime` should point to the `rt.jar` file;
        * `Ivy2` should point to the `ivy2 cache` (multiple directories should be seperated by `:`);
